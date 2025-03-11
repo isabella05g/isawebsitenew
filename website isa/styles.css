@@ -1,0 +1,115 @@
+/* Basis-Stile für die Seite */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #333;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar .nav-link {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    background-color: #575757;
+}
+
+/* Container für den Inhalt */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+/* Überschrift */
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Container für alle Schuhe */
+.shoes {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Einzelne Schuh-Elemente */
+.shoe-item {
+    text-align: center;
+    max-width: 300px;
+}
+
+/* Stil für das Bild der Turnschuhe */
+.shoe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+/* Hover-Effekt für das Bild */
+.shoe-image:hover {
+    transform: scale(1.05);
+}
+
+/* Beschreibungstext unter jedem Bild */
+.shoe-description {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Button-Stile für den Warenkorb */
+.add-to-cart {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+footer p {
+    font-size: 0.9em;
+}

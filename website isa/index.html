@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendy Turnschuhe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navbar">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#warenkorb" class="nav-link">Warenkorb</a>
+        <a href="#ueber-uns" class="nav-link">Über uns</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
+    </div>
+
+    <!-- Container für die App -->
+    <div class="container">
+        <h1>Trendy Turnschuhe</h1>
+        
+        <div class="shoes">
+            <!-- Erstes Paar Schuhe -->
+            <div class="shoe-item">
+                <img src="https://thumblr.uniid.it/product/382197/dced62258ac7.jpg?width=3840&format=webp&q=75" alt="Turnschuh 1" class="shoe-image">
+                <p class="shoe-description">New Balance 530 white.</p>
+                <button class="add-to-cart">In den Warenkorb</button>
+            </div>
+            
+            <!-- Zweites Paar Schuhe -->
+            <div class="shoe-item">
+                <img src="https://cdn.evrysz.net/473x340/4/nike-p-6000-cn0149001.png" alt="Turnschuh 2" class="shoe-image">
+                <p class="shoe-description">Nike p6000</p>
+                <button class="add-to-cart">In den Warenkorb</button>
+            </div>
+            
+            <!-- Drittes Paar Schuhe -->
+            <div class="shoe-item">
+                <img src="https://valued.de/cdn/shop/products/vans-vans-knu-skool-black-rope-white-bei-valued-kaufen-354562_1080x.png?v=1707313209" alt="Turnschuh 3" class="shoe-image">
+                <p class="shoe-description">Vans knu skool black</p>
+                <button class="add-to-cart">In den Warenkorb</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (optional) -->
+    <footer>
+        <p>© 2025 Trendy Turnschuhe</p>
+    </footer>
+
+    <script>
+        // Array für den Warenkorb
+        let cart = [];
+
+        // Event Listener für alle "In den Warenkorb"-Buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const shoeDescription = this.previousElementSibling.textContent.trim(); // Extrahiert die Schuhbeschreibung
+
+                // Füge das Produkt zum Warenkorb-Array hinzu
+                cart.push(shoeDescription);
+                alert(shoeDescription + " wurde in den Warenkorb gelegt.");
+            });
+        });
+    </script>
+</body>
+</html>
