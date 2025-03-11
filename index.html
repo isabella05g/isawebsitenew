@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendy Turnschuhe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="navbar">
+        <a href="javascript:history.back()" class="nav-link" id="back-link">Zurück</a>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#warenkorb" class="nav-link" id="warenkorb-link">Warenkorb (0) - 0$</a>
+        <a href="#ueber-uns" class="nav-link">Über uns</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
+    </div>
+
+    <!-- Container für die App -->
+    <div class="container">
+        <h1>Trendy Turnschuhe</h1>
+        
+        <div class="shoes">
+            <!-- Schuhe -->
+            <div class="shoe-item">
+                <img src="https://thumblr.uniid.it/product/382197/dced62258ac7.jpg?width=3840&format=webp&q=75" alt="Turnschuh 1" class="shoe-image">
+                <p class="shoe-description">New Balance 530 white</p>
+                <p class="shoe-price">95$</p>
+                <button class="add-to-cart" data-price="95">In den Warenkorb</button>
+            </div>
+
+            <div class="shoe-item">
+                <img src="https://cdn.evrysz.net/473x340/4/nike-p-6000-cn0149001.png" alt="Turnschuh 2" class="shoe-image">
+                <p class="shoe-description">Nike p6000</p>
+                <p class="shoe-price">85$</p>
+                <button class="add-to-cart" data-price="85">In den Warenkorb</button>
+            </div>
+
+            <div class="shoe-item">
+                <img src="https://www.asphaltgold.com/cdn/shop/files/1ee01d46bac45c9dece44479525175f5fbad1dd1_VN0009QC6BT1_Vans_Knu_Skool_Black_True_White_os_1_6ceab523-53c2-4610-8b4d-5dcc3f4af695_200x200.jpg?v=1732512464" alt="Turnschuh 3" class="shoe-image">
+                <p class="shoe-description">Vans knu skool black</p>
+                <p class="shoe-price">79$</p>
+                <button class="add-to-cart" data-price="79">In den Warenkorb</button>
+            </div>
+
+            <!-- Weitere Schuhe -->
+            <div class="shoe-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpVlA5Z_mwAiLNRQnkgnIOdTyNsdwt9-gcg&s" alt="Turnschuh 4" class="shoe-image">
+                <p class="shoe-description">Adidas Campus grau</p>
+                <p class="shoe-price">89$</p>
+                <button class="add-to-cart" data-price="89">In den Warenkorb</button>
+            </div>
+
+            <div class="shoe-item">
+                <img src="https://limitedresell.com/10081-marketplace_1500/nike-zoom-vomero-5-520-pack-white-pink.jpg" alt="Turnschuh 5" class="shoe-image">
+                <p class="shoe-description">Nike Vomero 5</p>
+                <p class="shoe-price">69$</p>
+                <button class="add-to-cart" data-price="69">In den Warenkorb</button>
+            </div>
+
+            <div class="shoe-item">
+                <img src="https://images.napali.app/global/dcshoes-products/all/default/large/320188_dcshoes,p_bgm_frt2.jpg" alt="Turnschuh 6" class="shoe-image">
+                <p class="shoe-description">DC stag black</p>
+                <p class="shoe-price">75$</p>
+                <button class="add-to-cart" data-price="75">In den Warenkorb</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warenkorb Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Warenkorb</h2>
+            <ul id="cart-items">
+                <!-- Warenkorb Items werden hier angezeigt -->
+            </ul>
+            <p id="total-price">Gesamt: 0$</p>
+            <button id="checkout-btn">Zur Kasse</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Trendy Turnschuhe</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+
+        // Event Listener für alle "In den Warenkorb"-Buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const shoeName = button.previousElementSibling.previousElementSibling.textContent; // Schuhname
+                const shoePrice = parseFloat(button.getAttribute('data-price')); // Schuhpreis
+                cart.push({ name: shoeName, price: shoePrice });
+                totalPrice += shoePrice;
+
+                // Warenkorb-Link aktualisieren
+                document.getElementById('warenkorb-link').textContent = `Warenkorb (${cart.length}) - ${totalPrice.toFixed(2)}$`;
+
+                // Warenkorb Modal aktualisieren
+                updateCartModal();
+                alert(shoeName + " wurde in den Warenkorb gelegt.");
+            });
+        });
+
+        // Öffnen des Warenkorb-Modals
+        document.getElementById('warenkorb-link').addEventListener('click', () => {
+            document.getElementById('cart-modal').style.display = 'block';
+        });
+
+        // Schließen des Warenkorb-Modals
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('cart-modal').style.display = 'none';
+        });
+
+        // Funktion zum Aktualisieren des Warenkorb-Modals
+        function updateCartModal() {
+            const cartItemsList = document.getElementById('cart-items');
+            cartItemsList.innerHTML = ''; // Liste leeren
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.price}$`;
+                cartItemsList.appendChild(li);
+            });
+
+            // Gesamtpreis aktualisieren
+            document.getElementById('total-price').textContent = `Gesamt: ${totalPrice.toFixed(2)}$`;
+        }
+
+        // Zur Kasse Button
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Ihr Warenkorb ist leer!');
+            } else {
+                alert('Danke für Ihren Einkauf! Bezahlung wird bearbeitet...');
+                cart = []; // Leere den Warenkorb nach dem Kauf
+                totalPrice = 0; // Setze den Gesamtpreis zurück
+                updateCartModal(); // Warenkorb-Modul aktualisieren
+                document.getElementById('warenkorb-link').textContent = 'Warenkorb (0) - 0$'; // Zurücksetzen des Warenkorb-Links
+            }
+        });
+    </script>
+</body>
+</html>
+

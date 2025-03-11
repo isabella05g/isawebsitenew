@@ -1,0 +1,111 @@
+/* Basis-Stile für die Seite */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #333;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar .nav-link {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    background-color: #575757;
+}
+
+/* Container für den Inhalt */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+}
+
+/* Überschrift */
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Container für alle Schuhe */
+.shoes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Einzelne Schuh-Elemente */
+.shoe-item {
+    text-align: center;
+    width: 30%;
+}
+
+/* Stil für das Bild der Turnschuhe */
+.shoe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+/* Hover-Effekt für das Bild */
+.shoe-image:hover {
+    transform: scale(1.05);
+}
+
+/* Beschreibungstext und Preis */
+.shoe-description {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 600;
+}
+
+.shoe-price {
+    font-size: 1em;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Warenkorb Modal */
+.cart-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-modal-content {
+    background-color: white;
+    padding
